@@ -1,0 +1,28 @@
+{
+  "name": "Protect main and develop",
+  "target": "branch",
+  "enforcement": "active",
+  "bypass_actors": [],
+  "conditions": {
+    "ref_name": {
+      "include": ["refs/heads/main", "refs/heads/develop", "refs/heads/dev"],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approvals": 1,
+        "dismiss_stale_reviews_on_push": true,
+        "require_code_owner_review": false
+      }
+    },
+    {
+      "type": "restrict_pushes",
+      "parameters": {
+        "restricted_actors": []
+      }
+    }
+  ]
+}	
